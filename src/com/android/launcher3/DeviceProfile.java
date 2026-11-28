@@ -478,7 +478,9 @@ public class DeviceProfile {
         hotseatQsbSpace = pxFromDp(inv.hotseatQsbSpace[mTypeIndex], mMetrics);
 
         if (!isQsbEnabled) {
-            hotseatBarBottomSpace += minQsbMargin + hotseatQsbSpace;
+            hotseatBarBottomSpace = Math.max(
+                    mInsets.bottom + pxFromDp(20, mMetrics),
+                    pxFromDp(52, mMetrics));
             hotseatQsbSpace = 0;
         }
 
